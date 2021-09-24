@@ -1,0 +1,10 @@
+/*branches.html's font size*/
+.branches {
+  font-size: 100px;
+}
+
+[type="checkbox"] + span:not(.lever):before,
+[type="checkbox"]:not(.filled-in) + span:not(.lever):after {
+  width: 75px;
+  height: 75px;
+}
