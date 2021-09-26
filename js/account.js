@@ -34,4 +34,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
   linkColor.forEach((l) => l.addEventListener("click", colorLink));
 
   // Your code to run since DOM is loaded and ready
+
+  function openpage(pgNmae) {
+    var i;
+    var x = document.getElementsByClassName("page");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    document.getElementById(pgNmae).style.display = "block";
+  }
 });

@@ -1,0 +1,13 @@
+{
+    "name": "TRACKING",
+    "short_name": "TRACKING",
+    "description": "Organize and track all the information an NON-Commission Officer should know.",
+    "start_url": "/index.htmlutm_sorce=pwa",
+    "scope": ".",
+    "display": "standalone",
+    "orientation":"portrait-primary",
+    "background_color": "#FFFFFF",
+    "theme_color":"#06B741",
+    "dir":"auto",
+    "lang":"en"
+}

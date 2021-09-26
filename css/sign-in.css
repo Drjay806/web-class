@@ -17,3 +17,28 @@
   margin-right: auto;
   margin-bottom: 10px;
 }
+
+.card.large {
+  height: 500px;
+  margin-right: 20%;
+  margin-left: 20%;
+  opacity: 0.87;
+  border-radius: 10px;
+}
+
+.backImg {
+  background: url(/img/indexbackground.jpg) no-repeat fixed center center;
+  background-size: 1462px 1000px;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
+.backImgsmall {
+  background: url(/img/indexbackground.jpg) no-repeat fixed center center;
+  background-size: 1462px 1000px;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  filter: brightness(50%);
+}

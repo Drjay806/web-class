@@ -12,23 +12,39 @@
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-          
+  
+  <link rel="stylesheet" type="text/css" href="css/sign-in.css" />
   <title>Start Page</title>
 </head>
-<body>
+<body class="backImg ">
   <br>
   <br>
   <br>
-  <div class = "container">
-    <div class="row">
-        <h1 class="header center green-text">TRACKING</h1>
+  <div class="hide-on-small-only card large black">
+    <div class="row center ">
+      <h1 class="header center green-text" style="opacity: 1";>TRACKING</h1>
+    </div>
+    <div class="row" >
+      <div class="col l3 m3" ></div>
+      <a href="sign-in.html" onclick="window.event.stopPropagation()" class="waves-effect waves-light btn-large green col l3 m3 s4" style="opacity: 1">log-In</a>
+      
+      <a href="sign-up.html" onclick="window.event.stopPropagation()" class="waves-effect waves-light btn-large green col l3 m3 s4" style="opacity: 1">Sign-Up</a>
     </div>
   </div>
-  <div class="row">
-    <div class ="col l4 m4 s2"></div>
-    <a href="sign-in.html" onclick="window.event.stopPropagation()" class="waves-effect waves-light btn-large green col l2 m2 s4">log-In</a>
-    <a href="sign-up.html" onclick="window.event.stopPropagation()" class="waves-effect waves-light btn-large green col l2 m2 s4 ">Sign-In</a>
+  <div class="hide-on-med-and-up "  >
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row center ">
+      <h1 class="header center green-text" style= "text-shadow: 5px 1px black";>TRACKING</h1>
+    </div>
+    <div class="row" >
+      <div class="col s2" ></div>
+      <a href="sign-in.html" onclick="window.event.stopPropagation()" class="waves-effect waves-light btn-large green col s4">log-In</a>
+      
+      <a href="sign-up.html" onclick="window.event.stopPropagation()" class="waves-effect waves-light btn-large green col s4" >Sign-Up</a>
+    </div>
   </div>
-  
 </body>
 </html>
