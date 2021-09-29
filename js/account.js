@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function (event) {
+  //
   const showNavbar = (toggleId, navId, bodyId, headerId) => {
+    //set toggle to the id toggle id from above param
     const toggle = document.getElementById(toggleId),
+      //set navId from parma to variable nav
       nav = document.getElementById(navId),
       bodypd = document.getElementById(bodyId),
       headerpd = document.getElementById(headerId);
@@ -13,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // change icon
         toggle.classList.toggle("bx-x");
         // add padding to body
-        bodypd.classList.toggle("body-pd");
+
         // add padding to header
         headerpd.classList.toggle("body-pd");
       });
@@ -34,13 +37,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
   linkColor.forEach((l) => l.addEventListener("click", colorLink));
 
   // Your code to run since DOM is loaded and ready
-
-  function openpage(pgNmae) {
-    var i;
-    var x = document.getElementsByClassName("page");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-    }
-    document.getElementById(pgNmae).style.display = "block";
-  }
 });

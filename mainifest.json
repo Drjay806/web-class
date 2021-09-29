@@ -3,8 +3,55 @@
     "short_name": "TRACKING",
     "description": "Organize and track all the information an NON-Commission Officer should know.",
     "start_url": "/index.htmlutm_sorce=pwa",
-    "scope": ".",
+    "scope": "/",
     "display": "standalone",
+    "icons":[
+        {
+            "src": "/img/48.png",
+            "type": "image/png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "/img/72.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "/img/96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "/img/128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "/img/144.png",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "/img/152.png",
+            "type": "image/png",
+            "sizes": "152x152"
+        },
+        {
+            "src": "/img/192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/img/384.png",
+            "type": "image/png",
+            "sizes": "384x384"
+        },
+        {
+            "src": "/img/512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
     "orientation":"portrait-primary",
     "background_color": "#FFFFFF",
     "theme_color":"#06B741",
