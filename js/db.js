@@ -4,7 +4,8 @@ import {
   getFirestore,
   collection,
   getDocs,
-  onSnapshot
+  onSnapshot,
+  addDoc
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -21,23 +22,69 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-async function getTasks(db) {
+async function getSMs(db) {
   const SMsCol = collection(db, "SMs");
   const SMsSnapshot = await getDocs(SMsCol);
   const SMsList = SMsSnapshot.docs.map((doc) => doc);
   return SMsList;
 }
 
-const unsub = onSnapshot(collection(db, "tasks"), (doc) => {
+const unsub = onSnapshot(collection(db, "SMs"), (doc) => {
   //   console.log(doc.docChanges());
   doc.docChanges().forEach((change) => {
     // console.log(change, change.doc.data(), change.doc.id);
     if (change.type === "added") {
       //Call render function in UI
-      renderTask(change.doc.data(), change.doc.id);
+      renderSMs(change.doc.data(), change.doc.id);
     }
     if (change.type === "removed") {
       //do something
+      removSM(change.doc.id);
     }
   });
+});
+
+//add new task
+const form = document.querySelector("form");
+form.addEventListener("#done", (event) => {
+  event.preventDefault();
+
+  addDoc(collection(db, "SMs"), {
+    FirstName: form.fname.value,
+    Lastname: form.lname.value,
+    Rank: form.rank.value,
+    EYECOLOR: form.ecolor.value,
+    HAIRCOLOR: form.hcolor.value,
+    Hight: form.h.value,
+    ACFTdate: form.acftdate.value,
+    ACFTscore: form.acftscore.value,
+    pushups: form.pushup.value,
+    situps: form.situp.value,
+    runTime: form.run.value,
+    qualDate: form.qualdate.value,
+    qualScore: form.qualscore.value,
+    milEmail: form.memail.value,
+    civlEmil: form.cemail.value,
+    cellNumber: form.phone.value,
+    DOB: form.dob.value,
+    Address: form.textarea1.value
+  }).catch((error) => console.log(error));
+  form.fname.value = "";
+  form.lname.value = "";
+  form.rank.value = "";
+  form.ecolor.value = "";
+  form.hcolor.value = "";
+  form.h.value = "";
+  form.acftdate.value = "";
+  form.acftscore.value = "";
+  form.pushup.value = "";
+  form.situp.value = "";
+  form.run.value = "";
+  form.qualdate.value = "";
+  form.qualscore.value = "";
+  form.memail.value = "";
+  form.cemail.value = "";
+  form.phone.value = "";
+  form.dob.value = "";
+  form.textarea1.value = "";
 });

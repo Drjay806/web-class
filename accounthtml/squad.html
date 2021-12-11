@@ -23,7 +23,7 @@
 
       
  
-    <script type='text/javascript' src='/js/squad.js'></script>
+    
  
       
       <link rel="stylesheet" type="text/css" href="/css/account.css" />
@@ -94,20 +94,20 @@
         <div class="card green green darken-1">            
           <span class="card-title col l12 m12 s12 center-align">Personal Identifiable Information</span>
             <div class="card-content ">
-              <form>
+              <form >
                 <div class="row">
                   <div class="input-field  col s6">
-                    <input id="first_name" type="text" class="validate">
+                    <input id="first_name" type="text" class="validate" id="fname">
                     <label for="first_name">First Name</label>
                   </div>
                   <div class="input-field col s6">
-                    <input id="last_name" type="text" class="validate">
+                    <input id="last_name" type="text" class="validate" id="lname">
                     <label for="last_name">Last Name</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class=" white-text input-field col s6">
-                    <select>
+                    <select id="rank">
                       <option  class=" white-text" value="" disabled selected>Choose RANK</option>
                       <option value="1">PV1</option>
                       <option value="2">PV2</option>
@@ -120,13 +120,13 @@
                     <label>RANK</label>
                   </div>
                   <div class="input-field col s6" id="date">
-                    <input type="text" class="datepicker">
+                    <input type="text" class="datepicker" id ="dob">
                     <label for="date">Birth Date</label>
                   </div>
                 </div> 
                 <div class="row">
                   <div class="input-field  col s4">
-                    <select>
+                    <select id="ecolor">
                       <option class="white-text" value="" disabled selected>EYE COLOR</option>
                       <option value="1">Brown</option>
                       <option value="2">Blue </option>
@@ -138,7 +138,7 @@
                     <label>EYE COLOR</label>
                   </div>
                   <div class="input-field  white-text col s4">
-                    <select>
+                    <select id="hcolor">
                       <option value="" disabled selected>Hair Color</option>
                       <option value="1">Brown</option>
                       <option value="2">Black </option>
@@ -150,11 +150,11 @@
                   </div>
                     
                     <div class="input-field col s4">
-                      <input id="number" type="number" class="validate">
+                      <input id="number" type="number" class="validate" id="h">
                       <label for="number">hight</label>
                     </div> 
               </div>
-            </form>
+            
             <a onclick="arrowforward()"  id="forwardArrow" class="btn-floating halfway-fab next waves-effect waves-light green lighten-1 "><i class="material-icons">arrow_forward</i></a>
           </div>
           </div>
@@ -168,14 +168,14 @@
         <div class="card green green darken-1">            
           <span class="card-title col l12 m12 s12 center-align">Contact Information</span>
             <div class="card-content ">
-              <form>
+              
                 <div class="row">
                   <div class="input-field col s6">
-                    <input id="email" type="email" class="validate">
+                    <input id="email" type="email" class="validate" memail>
                     <label for="email">Military Email</label>
                   </div>
                   <div class="input-field col s6">
-                    <input id="email" type="email" class="validate">
+                    <input id="email" type="email" class="validate" id="cemail">
                     <label for="email">Civilian Email</label>
                   </div>  
                 </div>
@@ -187,13 +187,12 @@
                     <label for="textarea1">Adress</label>
                   </div>
                   <div class="input-field col s6">
-                    <input id="telephone" type="tel" class="validate">
+                    <input id="telephone" type="tel" class="validate" id="phone">
                     <label for="telephone">Telephone</label>
                   </div>
                 </div>
                 <br>
                 <br>
-                </form>
             <a   onclick="arrowforward2()"  id="forwardArrow"  class="btn-floating halfway-fab prev waves-effect waves-light green lighten-1"><i class="material-icons">arrow_forward</i></a>
             <a   onclick="arrowback()" id="backArrow" class="btn-floating halfway-fab2 next waves-effect waves-light green lighten-1 "><i class="material-icons">arrow_back</i></a>
           </div>
@@ -208,26 +207,26 @@
               <span class="card-title col l12 m12 s12 center-align"> Test Infomation</span>
 
                 <div class="card-content ">
-                <form>
+                
                 <div class="row">
                   <div class="input-field col s2" id="date">
-                    <input type="text" class="datepicker">
+                    <input type="text" class="datepicker" id="acftdate">
                     <label for="date">Last ACFT</label>
                   </div>
                   <div class="input-field black-text col s2">
-                    <input id="number" type="number" class="validate">
+                    <input id="number" type="number" class="validate" id="acftscore">
                     <label for="number">ACFT score</label>
                   </div>
-                  <div class="input-field black-text col s1">
-                    <input id="number" type="number" class="validate">
+                  <div class="input-field black-text col s1" >
+                    <input id="number" type="number" class="validate" id="pushup">
                     <label for="number">Push-up</label>
                   </div>
                   <div class="input-field black-text col s1">
-                    <input id="number" type="number" class="validate">
+                    <input id="number" type="number" class="validate" id="situp">
                     <label for="number"># of Sit-up</label>
                   </div>
                   <div class="input-field black-text col s2">
-                    <input id="number" type="number" class="validate">
+                    <input id="number" type="number" class="validate" id="run">
                     <label for="number">Run time: ####</label>
                   </div>
                   <div class=" col s4 file-field input-field">
@@ -244,11 +243,11 @@
                 <br>
                 <div class="row">
                   <div class="input-field col s3" id="date">
-                    <input type="text" class="datepicker">
+                    <input type="text" class="datepicker" id="qualdate">
                     <label for="date">Weapons-Qual Date</label>
                   </div>
                   <div class="input-field black-text col s3">
-                    <input id="number" type="number" class="validate">
+                    <input id="number" type="number" class="validate" id="qualscore">
                     <label for="number">Weapons score</label>
                   </div>
                   <div class=" col s5 file-field input-field">
@@ -266,181 +265,91 @@
                   <br>
                 </div>
                 
-                </form>
-                <a onclick="done()" id="done"  class="btn-floating  halfway-fab tooltipped  waves-effect waves-light green lighten-1" data-position="bottom" data-tooltip="Submit"><i class="material-icons">done</i></a>
+               
+                <button onclick="done()" id="done"  class="btn-floating  halfway-fab tooltipped  waves-effect waves-light green lighten-1" data-position="bottom" data-tooltip="Submit"><i class="material-icons">done</i></button> 
+              
                 <a   onclick="arrowback2()" id="backArrow" class="btn-floating halfway-fab2  waves-effect waves-light green lighten-1 "><i class="material-icons">arrow_back</i></a>
               </div>
               </div>
             </div>
         </div>
+      </form>
 </div>
 
 
-    <!--          phone card                       -->
-      <div class ="hide-on-med-and-up" id ="infoCardCell">
-
-        <div class="card green white-text">
-          <div class="card-content">
-            <h5 class="center-align">ENTER YOU SOLDIERS PERSONAL DATA TO TRACK:</h5>
-          </div>
-        </div>
-        <form class="col s12">
-          <h2 class="center-align">Personal Identifiable Information</h2>
-          <div class="row">
-                <div class="input-field black-text col s6">
-                  <input id="first_name" type="text" class="validate">
-                  <label for="first_name">First Name</label>
-                </div>
-                <div class="input-field black-text col s6">
-                  <input id="last_name" type="text" class="validate">
-                  <label for="last_name">Last Name</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s6">
-                  <select>
-                    <option value="" disabled selected>Choose RANK</option>
-                    <option value="1">PV1</option>
-                    <option value="2">PV2</option>
-                    <option value="8">PFC</option>
-                    <option value="4">SPC</option>
-                    <option value="5">CPL</option>
-                    <option value="6">SGT</option>
-                    <option value="7">SGG</option>
-                  </select>
-                  <label>RANK</label>
-                </div>
-                <div class="input-field col s6" id="date">
-                    <input type="text" class="datepicker">
-                    <label for="date">Birth Date</label>
-                  </div>
-              </div>
-            <div class="row">
-                            <div class="input-field col s4">
-                              <select>
-                                <option value="" disabled selected>EYE COLOR</option>
-                                <option value="1">Brown</option>
-                                <option value="2">Blue </option>
-                                <option value="8">Hazel</option>
-                                <option value="4">Amber</option>
-                                <option value="5">Gray </option>
-                                <option value="6">Green </option>
-                              </select>
-                              <label>EYE COLOR</label>
-                            </div>
-                            <div class="input-field col s4">
-                              <select>
-                                <option value="" disabled selected>Hair Color</option>
-                                <option value="1">Brown</option>
-                                <option value="2">Black </option>
-                                <option value="8">Blond</option>
-                                <option value="4">Red</option>
-                                <option value="5">White/Gray </option>
-                              </select>
-                              <label>HAIR COLOR</label>
-                            </div>
-                              
-                              <div class="input-field black-text col s4">
-                                <input id="number" type="number" class="validate">
-                                <label for="number">Hight</label>
-                              </div>
-                        </div>
-                        <h2 class="center-align">Contact Information</h2>
-              <div class="row">
-                <div class="input-field col s6">
-                  <input id="email" type="email" class="validate">
-                  <label for="email">Military Email</label>
-                </div>
-                <div class="input-field col s6">
-                  <input id="email" type="email" class="validate">
-                  <label for="email">Civilian Email</label>
-                </div>  
-              </div>
-              <div class="row">
-                <div class="input-field col s6">
-                  <textarea id="textarea1" class="materialize-textarea"></textarea>
-                  <label for="textarea1">Adress</label>
-                </div>
-                <div class="input-field col s6">
-                  <input id="telephone" type="tel" class="validate">
-                  <label for="telephone">Telephone</label>
-                </div>
-              </div>
-              <h2 class="center-align">Test Infomation</h2>
-              <div class="row">
-                <div class="input-field col s12" id="date">
-                  <input type="text" class="datepicker">
-                  <label for="date">Last ACFT</label>
-                </div>
-                <div class="input-field black-text col s6">
-                  <input id="number" type="number" class="validate">
-                  <label for="number">ACFT score</label>
-                </div>
-                <div class="input-field black-text col s6">
-                  <input id="number" type="number" class="validate">
-                  <label for="number">Push-up</label>
-                </div>
-                <div class="input-field black-text col s6">
-                  <input id="number" type="number" class="validate">
-                  <label for="number"># of Sit-up</label>
-                </div>
-                <div class="input-field black-text  col s6">
-                  <input id="number" type="number" class="validate">
-                  <label for="number">Run time: ####</label>
-                </div>
-                <div class=" col s12 file-field input-field">
-                  <div class="btn">
-                    <span>ACFT card</span>
-                    <input type="file" multiple>
-                  </div>
-                  <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Upload ACFT CARD">
-                  </div>
-                </div>
-              </div> 
-              <div class="row">
-              <div class="input-field col s6" id="date">
-                <input type="text" class="datepicker">
-                <label for="date">Weapons-Qual Date</label>
-              </div>
-              <div class="input-field black-text col s6">
-                <input id="number" type="number" class="validate">
-                <label for="number">Weapons score</label>
-              </div>
-              
-              <div class=" col s12 file-field input-field">
-                <div class="btn">
-                  <span>Weapons-Qual card</span>
-                  <input type="file" multiple>
-                </div>
-                <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text" placeholder="Upload Weapons-Qual CARD">
-                </div>
-              </div>
-            </div>
-            <div  class="col s12 center-align">
-            <button  class="col s8 btn waves-effect waves-light " type="submit" name="action">Submit
-              <i class="material-icons right">send</i>
-            </button>
-          </div>
-        </form>
-      </div>
 
 
 
 <!--                table          -->
 <br>
 <br>
-<div id ="suadTable">
-  <ul class="collapsible popout">
+<div id="table">
+  <ul class="SMs collapsible popout ">
+    <li data-id ="${id}">
+      <div class="collapsible-header"><i class="material-icons">face</i>SSG Doe John </div>
+      <div class="collapsible-body">
+        <h5 class="header">Contact/Personal Information</h5>
+          <div class="row">
+              <div class="card-panel">
+                <div class="row">     
+                  <div class=" col s2 right-align">Military email:</div>
+                  <div class="col s2 left-align">jay.mil@mil</div>
+                  <div class=" col s2 right-align">Civilan email:</div>
+                  <div class="col s2 left-align">j@gmail.com</div>
+                  <div class=" col s1 right-align">Cell:</div>
+                  <div class="col s2 left-align">9314367790</div>
+                </div>
+                <div class="row">  
+                    <div class="col s6">123 Over crest</div>
+                    <div class="col s1">DOB:</div>
+                    <div class="col s2">04 Jun 1995</div>
     
-    <li>
-      <div class="collapsible-header"><i class="material-icons">face</i>Second</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">face</i>Third</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </div>
+              </div>  
+          </div>  
+      </div>
+      <div class="collapsible-body">
+        <h5 class="header">Appearance Features</h5>
+          <div class="row">
+              <div class="card-panel">
+                <div class="row">     
+                  <div class=" col s2 right-align">Eye Color:</div>
+                  <div class="col s2 left-align">Brown</div>
+                  <div class=" col s2 right-align">Hair Color:</div>
+                  <div class="col s2 left-align">Black</div>
+                  <div class=" col s2 right-align">Hight:</div>
+                  <div class="col s2 left-align">74</div>
+                </div>
+              </div> 
+              <div class="row center-align">  
+                <div class="">:</div>
+            </div> 
+          </div>  
+      </div>
+      <div class="collapsible-body">
+        <h5 class="header">Test Dates/Information</h5>
+          <div class="row">
+              <div class="card-panel">
+                <div class="row">     
+                  <div class=" col s2 right-align">AFCT DATE</div>
+                  <div class="col s2 left-align">04 Jun 2021</div>
+                  <div class=" col s2 right-align">Push-ups:</div>
+                  <div class="col s1 left-align">40</div>
+                  <div class=" col s1 right-align">Sit-ups:</div>
+                  <div class="col s1 left-align">40</div>
+                  <div class=" col s2 right-align">Run Time:</div>
+                  <div class="col s1 left-align">1300</div>
+                </div>
+                <div class="row">     
+                  <div class=" col s3 right-align">Weapons Qual. Date DATE</div>
+                  <div class="col s3 left-align">04 Jun 2021</div>
+                  <div class=" col s3 right-align">Weapons Qual. Score</div>
+                  <div class="col s3 left-align">40</div>
+                
+                </div>
+              </div> 
+          </div>  
+      </div>
     </li>
   </ul>
 </div>
@@ -458,5 +367,6 @@
 
 <script type='text/javascript' src="/js/account.js"> </script>
 <script type="module" src="/js/db.js"></script>
+<script type='text/javascript' src='/js/squad.js'></script>
 </body>
 </html>

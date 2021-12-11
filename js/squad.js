@@ -1,4 +1,4 @@
-const tasks = document.querySelector(".tasks");
+const SMs = document.querySelector(".SMs");
 
 $(document).ready(function () {
   $("#1card").hide();
@@ -10,7 +10,7 @@ $(document).ready(function () {
 function plusBottonGone() {
   $("#plusButton").hide();
   $("#1card").show();
-
+  $("#table").hide();
   $("#infoCardCell").show();
 }
 
@@ -34,14 +34,6 @@ function arrowback2() {
   $("#2card").show();
 }
 
-function done() {
-  $("#plusButton").show();
-  $("#suadTable").show();
-  $("#3card").hide();
-}
-
-function submitCell() {}
-
 $(document).ready(function () {
   $(".collapsible").collapsible();
 });
@@ -54,11 +46,10 @@ $(document).ready(function () {
   $(".datepicker").datepicker();
 });
 
-const renderTask = (data, id) => {
-  const html = `<li>
-  <div class="collapsible-header"><i class="material-icons">face</i>${
-    data.Rank
-  } ${data.FirstName} ${data.LastName}</div>
+const renderSMs = (data, id) => {
+  const html = `
+<li data-id ="${id}">
+  <div class="collapsible-header"><i class="material-icons">face</i>${data.Rank} ${data.LastName} ${data.FirstName} </div>
   <div class="collapsible-body">
     <h5 class="header">Contact/Personal Information</h5>
       <div class="row">
@@ -106,9 +97,9 @@ const renderTask = (data, id) => {
               <div class=" col s2 right-align">AFCT DATE</div>
               <div class="col s2 left-align">${data.ACFTdate}</div>
               <div class=" col s2 right-align">Push-ups:</div>
-              <div class="col s1 left-align">${data.push - ups}</div>
+              <div class="col s1 left-align">${data.pushups}</div>
               <div class=" col s1 right-align">Sit-ups:</div>
-              <div class="col s1 left-align">${data.sit - ups}</div>
+              <div class="col s1 left-align">${data.situps}</div>
               <div class=" col s2 right-align">Run Time:</div>
               <div class="col s1 left-align">${data.runTime}</div>
             </div>
@@ -124,5 +115,5 @@ const renderTask = (data, id) => {
   </div>
 </li>
 `;
-  tasks.innerHTML += html;
+  SMs.innerHTML += html;
 };
