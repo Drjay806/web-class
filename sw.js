@@ -1,34 +1,40 @@
+const staticCache = "Static-cache-v1";
+const dynamicCache = "Dynamic-cache-v1";
+
 const assets = [
   "/",
-  "/accounthtml/account.html",
+  "/index.html",
   "app.js",
-  "/css/account.css",
-  "/js/account.js",
-  "https://code.iconify.design/2/2.0.3/iconify.min.js",
-  "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css",
+  "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js",
+  "/js/squad.js",
+  "https://code.jquery.com/jquery-1.12.0.min.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css",
   "https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css",
-  "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css",
-
-  "/img/48.png",
-  "/img/72.png",
-  "/img/96.png",
-  "/img/128.png",
-  "/img/144.png",
-  "/img/152.png",
-  "/img/192.png",
-  "/img/384.png",
-  "/img/512.png",
-  "/img/T-150.png"
+  "css/sign-in.css",
+  "/css/account.css",
+  "/img/indexbackground.jpg",
+  "https://fonts.googleapis.com/icon?family=Material+Icons"
 ];
 
+//Cache size limit
+const limitCacheSize = (name, size) => {
+  caches.open(name).then((cache) => {
+    cache.keys().then((keys) => {
+      if (keys.length > size) {
+        cache.delete(keys[0]).then(limitCacheSize(name, size));
+      }
+    });
+  });
+};
+
 self.addEventListener("install", function (event) {
-  //fires when the browser installs the app
-  //here we are just logging the event and the contents of the oppject passed to the event
-  //the purpose of this event is to give the service worrker the place to setup the local
-  //envirorment after the install is done
-  console.log("SW: Event fired: ${event.type}");
+  //fires when the browser install the app
+  //here we're just logging the event and the contents of the object passed to the event.
+  //the purpose of this event is to give the service worker a place to setup the local
+  //environment after the installation completes.
+  console.log(`SW: Event fired: ${event.type}`);
   event.waitUntil(
-    caches.open("static").then(function (cache) {
+    caches.open(staticCache).then(function (cache) {
       console.log("SW: Precaching App shell");
       cache.addAll(assets);
     })
@@ -36,19 +42,40 @@ self.addEventListener("install", function (event) {
 });
 
 self.addEventListener("activate", function (event) {
-  //fires when the browser installs the app
-  //here we are just logging the event and the contents of the oppject passed to the event
-  //the purpose of this event is to give the service worrker the place to setup the local
-  //envirorment after the install is done
-  console.log("SW: Event fired: ${event.type}");
+  //fires after the service worker completes its installation.
+  // It's a place for the service worker to clean up from
+  // previous service worker versions.
+  // console.log(`SW: Event fired: ${event.type}`);
+  event.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys
+          .filter((key) => key !== staticCache && key !== dynamicCache)
+          .map((key) => caches.delete(key))
+      );
+    })
+  );
 });
-
+//comment
 self.addEventListener("fetch", function (event) {
-  //fires when the app ask for a resource (file or data)
-  console.log("SW: Fetching: ${event.request.url}");
-  //next, go get the requsted resource from the network
-  event.respondWith(fetch(event.request));
-  caches.match(event.request).then((response) => {
-    return response || fetch(event.request);
-  });
+  //fires whenever the app requests a resource (file or data)
+  // console.log(`SW: Fetching ${event.request.url}`);
+  //next, go get the requested resource from the network
+  event.respondWith(
+    caches
+      .match(event.request)
+      .then((response) => {
+        return (
+          response ||
+          fetch(event.request).then((fetchRes) => {
+            return caches.open(dynamicCache).then((cache) => {
+              cache.put(event.request.url, fetchRes.clone());
+              limitCacheSize(dynamicCache, 3);
+              return fetchRes;
+            });
+          })
+        );
+      })
+      .catch(() => caches.match("/accounthtml/fallback.html"))
+  );
 });
