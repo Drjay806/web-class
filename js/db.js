@@ -5,13 +5,16 @@ import {
   collection,
   getDocs,
   onSnapshot,
-  addDoc
+  addDoc,
+  enableIndexedDbPersistence
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
   apiKey: "AIzaSyBxYtIkK4bvN4tU0oY3PtkfPjXkJpP7SNw",
   authDomain: "tracking-ac440.firebaseapp.com",
+  databaseURL: "https://tracking-ac440-default-rtdb.firebaseio.com",
   projectId: "tracking-ac440",
   storageBucket: "tracking-ac440.appspot.com",
   messagingSenderId: "878931765860",
@@ -29,6 +32,18 @@ async function getSMs(db) {
   return SMsList;
 }
 
+enableIndexedDbPersistence(db).catch((err) => {
+  if (err.code == "failed-precondition") {
+    // Multiple tabs open, persistence can only be enabled
+    // in one tab at a a time.
+    console.log("Persistence failed");
+  } else if (err.code == "unimplemented") {
+    // The current browser does not support all of the
+    // features required to enable persistence
+    console.log("Persistence is'nt valid");
+  }
+});
+
 const unsub = onSnapshot(collection(db, "SMs"), (doc) => {
   //   console.log(doc.docChanges());
   doc.docChanges().forEach((change) => {
@@ -44,11 +59,9 @@ const unsub = onSnapshot(collection(db, "SMs"), (doc) => {
   });
 });
 
-//add new task
-const form = document.querySelector("form");
-form.addEventListener("#done", (event) => {
-  event.preventDefault();
-
+//add new SMs
+const form = document.getElementById("#formSM");
+form.addEventListener("submit", (event) => {
   addDoc(collection(db, "SMs"), {
     FirstName: form.fname.value,
     Lastname: form.lname.value,

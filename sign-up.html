@@ -20,8 +20,7 @@
         
     </head>
     <body>
-        <br>
-            <div class = "container">
+        <div class = "container">
                 <div class="row ">
                     <div class="header center green-text">
                     <b>
@@ -39,39 +38,38 @@
                         </a>
                     </div>
                 </div>
-                <div class="row">
-                    <div class ="input-field col l6 m8 s10 offset-l3 offset-m2 offset-s1">
-                        <input id = "last_name" type="email" class="validate">
-                        <label for="Password>">Email</label>
-                    </div>
+                <div id="modal-signup" class="user">
+                    
+                    <form id="signup-form">
+            <div class="row">
+                <div class ="input-field col l6 m8 s10 offset-l3 offset-m2 offset-s1">
+                    <input id = "sign-up-email" type="email" class="validate" required>
+                    <label for="sign-up-email">Email</label>
                 </div>
-                <div class="row">
-                    <div class ="input-field col l6 m8 s10 offset-l3 offset-m2 offset-s1">
-                        <input id = "last_name" type="password" class="validate">
-                        <label for="Password>">Password</label>
-                    </div>
+            </div>
+            <div class="row">
+                <div class ="input-field col l6 m8 s10 offset-l3 offset-m2 offset-s1">
+                    <input id ="sign-up-password" type="password" class="validate" required>
+                    <label for="sign-up-password">Password</label>
                 </div>
-                <div class="row">
-                  <div class ="input-field col l6 m8 s10 offset-l3 offset-m2 offset-s1">
-                      <input id = "last_name" type="password" class="validate">
-                      <label for="Password>">Confirm Password</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class ="input-field col l6 m8 s10 offset-l3 offset-m2 offset-s1">
-                      <input id = "last_name" type="password" class="validate">
-                      <label for="Password>">DOD-ID#</label>
-                  </div>
-                </div>
-              </div>
-                <div class="row">
-                  <a href="branches.html" onclick="window.event.stopPropagation()">
-                    <button class="col l4 s8 offset-l4 offset-s2  btn waves-effect waves-light green" type="submit" name="action">
-                        Sign Up
+            </div>
+        
+            <div class="row">
+                    <button class="col l4 s8 offset-l4 offset-s2  btn waves-effect waves-light green">
+                        Sign up
                     </button>
-                  </a>
-                </div>
-                 
+        
+            </div>
+                    </form>
+                
+            </div>
+
         </div>
+            
+                
+                
+               
+             
+                <script type="module" src="/js/auth.js" defer></script>
     </body>
 </html>

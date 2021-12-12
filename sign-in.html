@@ -35,7 +35,7 @@
                     </b>
                     </div>
                 </div>
-                <div class="row hide-on-med-and-down">
+                <div class="row ">
                     <div class="col l3 m3 offset-l3 m4"> 
                     <p>New user?</p>
                     </div>
@@ -45,16 +45,19 @@
                         </a>
                     </div>
                 </div>
+                <div id="modal-login" class="user">
+                    
+                        <form id="login-form">
                 <div class="row">
                     <div class ="input-field col l6 m8 s10 offset-l3 offset-m2 offset-s1">
-                        <input id = "last_name" type="email" class="validate">
-                        <label for="Password>">Email</label>
+                        <input id = "sign-in-email" type="email" class="validate" required>
+                        <label for="sign-in-email>">Email</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class ="input-field col l6 m8 s10 offset-l3 offset-m2 offset-s1">
-                        <input id = "last_name" type="password" class="validate">
-                        <label for="Password>">Password</label>
+                        <input id = "sign-in-password" type="password" class="validate" required>
+                        <label for="sign-in-password>">Password</label>
                     </div>
                 </div>
                 <div class="row hide-on-med-and-down">
@@ -68,12 +71,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <a href="/accounthtml/account.html" onclick="window.event.stopPropagation()">
-                        <button class="col l4 s8 offset-l4 offset-s2  btn waves-effect waves-light green" type="submit" name="action">
+                        <button class="col l4 s8 offset-l4 offset-s2  btn waves-effect waves-light green">
                             Sign In
                         </button>
-                    </a>
                 </div>
-            </div>       
+                        </form>
+                    
+                </div>
+            </div>  
+            <script type="module" src="/js/auth.js" defer></script>     
     </body>
 </html>

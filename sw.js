@@ -1,5 +1,5 @@
-const staticCache = "Static-cache-v1";
-const dynamicCache = "Dynamic-cache-v2-1";
+const staticCache = "Static-cache-v3.0";
+const dynamicCache = "Dynamic-cache-v3.1";
 
 const assets = [
   "/",
@@ -61,21 +61,23 @@ self.addEventListener("fetch", function (event) {
   //fires whenever the app requests a resource (file or data)
   // console.log(`SW: Fetching ${event.request.url}`);
   //next, go get the requested resource from the network
-  event.respondWith(
-    caches
-      .match(event.request)
-      .then((response) => {
-        return (
-          response ||
-          fetch(event.request).then((fetchRes) => {
-            return caches.open(dynamicCache).then((cache) => {
-              cache.put(event.request.url, fetchRes.clone());
-              limitCacheSize(dynamicCache, 3);
-              return fetchRes;
-            });
-          })
-        );
-      })
-      .catch(() => caches.match("/accounthtml/fallback.html"))
-  );
+  if (event.request.url.indexOf("firestore.googleeapis.com") === -1) {
+    event.respondWith(
+      caches
+        .match(event.request)
+        .then((response) => {
+          return (
+            response ||
+            fetch(event.request).then((fetchRes) => {
+              return caches.open(dynamicCache).then((cache) => {
+                cache.put(event.request.url, fetchRes.clone());
+                limitCacheSize(dynamicCache, 15);
+                return fetchRes;
+              });
+            })
+          );
+        })
+        .catch(() => caches.match("/accounthtml/fallback.html"))
+    );
+  }
 });
